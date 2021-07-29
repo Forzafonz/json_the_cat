@@ -1,8 +1,8 @@
 const CAT = process.argv[2];
-const fetchBreedDescription = require('./fetchBreedDescription')
+const fetchBreedDescription = require('./fetchBreedDescription');
 
 
-const processinput = function (error, data) {
+const processinput = function(error, data) {
 
   if (error) {
 
@@ -10,7 +10,7 @@ const processinput = function (error, data) {
 
   } else {
 
-    console.log(data)
+    console.log(data);
   
   }
   

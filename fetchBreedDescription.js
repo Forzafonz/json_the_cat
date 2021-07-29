@@ -6,7 +6,7 @@ const fetchBreedDescription = function(CAT, processinput) {
   request(`https://api.thecatapi.com/v1/breeds/search?q=${CAT}`, (error, response, body) => {
 
     if (error) {
-      processinput(error, null)
+      processinput(error, null);
     }
 
     if (body.length > 2) {

@@ -2,7 +2,7 @@ const request = require('request');
 const CAT = process.argv[2];
 
 
-const processinput = function (error, data) {
+const processinput = function(error, data) {
 
   if (error) {
 
@@ -16,14 +16,14 @@ const processinput = function (error, data) {
   
   }
   
-}
+};
 
 const fetchBreedDescription = function(CAT, processinput) {
 
   request(`https://api.thecatapi.com/v1/breeds/search?q=${CAT}`, (error, response, body) => {
 
     if (error) {
-      processinput(error, null)
+      processinput(error, null);
     }
 
     if (body.length > 2) {
