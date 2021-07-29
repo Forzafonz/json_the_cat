@@ -6,12 +6,22 @@ const CAT = process.argv[2];
 const requestCat = function (){
 
   request(`https://api.thecatapi.com/v1/breeds/search?q=${CAT}`, (error, response, body) => {
-    // console.log('error:', error); // Print the error if one occurred
-    // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    // console.log('body:', body); // Print the HTML for the Google homepage.
-    let data = body.substring(1, body.length - 1);
-    let JSONobj = JSON.parse(data);
-    console.log(JSONobj.description)
+    if (error) {
+      return console.log(`There was an error in your request. Error description: ${error}`);
+    }
+
+    if (body.length > 2){
+
+      console.log(response.statusCode);
+      let data = body.substring(1, body.length - 1);
+      let JSONobj = JSON.parse(data);
+      console.log(JSONobj.description)
+
+    } else {
+
+      return console.log(`The breed "${CAT.toUpperCase()}" that you specified was not found in our database`);
+
+    }
   });
   
 }
